@@ -1,4 +1,4 @@
---Necromorph Slasher
+--Necromorph Brute
 local s,id=GetID()
 function s.initial_effect(c)
   --Enable Necro counters collection
