@@ -40,7 +40,7 @@ function s.initial_effect(c)
 end
 --Return 1 card to the hand
 function s.thcost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,0x1ff,1,REASON_COST) end
+	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,0x1ff,2,REASON_COST) end
 	Duel.RemoveCounter(tp,1,0,0x1ff,2,REASON_COST)
 end
 function s.thtg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
