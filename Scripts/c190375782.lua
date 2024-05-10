@@ -3,7 +3,7 @@ local s,id=GetID()
 function s.initial_effect(c)
   --Enable Necro counters collection
   c:EnableCounterPermit(0x1ff)
-  --synchro summon
+  --Link summon
 	Link.AddProcedure(c,aux.FilterBoolFunctionEx(Card.IsRace,RACE_ZOMBIE),2,2)
 	c:EnableReviveLimit()
   --multi attack

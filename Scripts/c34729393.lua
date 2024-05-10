@@ -3,7 +3,7 @@ local s,id=GetID()
 function s.initial_effect(c)
   --Enable Necro counters collection
   c:EnableCounterPermit(0x1ff)
-  --synchro summon
+  --Link summon
 	Link.AddProcedure(c,aux.FilterBoolFunctionEx(Card.IsRace,RACE_ZOMBIE),2,2)
 	c:EnableReviveLimit()
   --special summon Swarmer on send to GY
@@ -40,10 +40,10 @@ s.listed_names={id,2309538}
 --Special summon divider components from hand, deck or GY
 function s.tdcondition(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return c:IsPreviousLocation(LOCATION_MZONE) and c:IsSummonType(SUMMON_TYPE_LINK) and rp==1-tp
+	return c:IsPreviousLocation(LOCATION_MZONE) and c:IsSummonType(SUMMON_TYPE_LINK) and Duel.GetCounter(e:GetHandlerPlayer(),1,0,0x1ff) > 0
 end
 function s.filter(c,e,tp)
-	return c:IsCode(2309538) and c:IsCanBeSpecialSummoned(e,0,tp,false,false) and c:GetCounter(0x1ff) > 0
+	return c:IsCode(2309538) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end
 function s.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0

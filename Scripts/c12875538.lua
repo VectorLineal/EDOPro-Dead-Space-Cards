@@ -20,7 +20,7 @@ function s.initial_effect(c)
 	e1:SetCost(s.discost)
 	e1:SetTarget(s.distg)
 	e1:SetOperation(s.disop)
-	c:RegisterEffect(e1)
+	c:RegisterEffect(e1,false,REGISTER_FLAG_DETACH_XMAT)
   --add Necro counters on special summon
   local e2=Effect.CreateEffect(c)
 	e2:SetDescription(aux.Stringid(id,1))
