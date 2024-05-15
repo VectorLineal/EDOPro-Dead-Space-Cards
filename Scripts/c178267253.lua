@@ -8,7 +8,7 @@ function s.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetCode(EVENT_FREE_CHAIN)
 	e1:SetCountLimit(1,id)
-	e1:SetTarget(s.actg)
+	--e1:SetTarget(s.actg)
 	e1:SetOperation(s.acop)
 	c:RegisterEffect(e1)
   --add Necro counters each end phase
@@ -53,7 +53,8 @@ function s.actg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.filter,tp,LOCATION_GRAVE+LOCATION_DECK,0,1,nil,tp) end
 end
 function s.acop(e,tp,eg,ep,ev,re,r,rp)
-  if Duel.SelectYesNo(tp,aux.Stringid(id,0)) then
+  if not e:GetHandler():IsRelateToEffect(e) then return end
+  if Duel.IsExistingMatchingCard(s.filter,tp,LOCATION_GRAVE+LOCATION_DECK,0,1,nil,tp) and Duel.SelectYesNo(tp,aux.Stringid(id,0)) then
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TOFIELD)
     local tc=Duel.SelectMatchingCard(tp,s.filter,tp,LOCATION_GRAVE+LOCATION_DECK,0,1,1,nil,tp):GetFirst()
     Duel.ActivateFieldSpell(tc,e,tp,eg,ep,ev,re,r,rp)
