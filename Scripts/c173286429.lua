@@ -47,7 +47,7 @@ function s.initial_effect(c)
 	e5:SetTarget(s.thtg)
 	e5:SetOperation(s.thop)
 	c:RegisterEffect(e5)
-  --Return card to the hand
+  --Special Summon Necromorph from GY
 	local e6=Effect.CreateEffect(c)
 	e6:SetDescription(aux.Stringid(id,0))
 	e6:SetCategory(CATEGORY_SPECIAL_SUMMON)
@@ -70,8 +70,8 @@ function s.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.RemoveCounter(tp,1,0,0x1ff,2,REASON_COST)
 end
 --check validity of the target to special summon
-function s.filter(c,e,tp)
-	return c:IsSetCard(0x1ff) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
+function s.spfilter(c,e,tp)
+	return c:IsSetCard(0x1ff) and c:IsCanBeSpecialSummoned(e,0,tp,false,false) and c:IsMonster()
 end
 function s.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0

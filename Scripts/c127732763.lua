@@ -35,7 +35,7 @@ function s.initial_effect(c)
 	e3:SetRange(LOCATION_MZONE)
 	e3:SetTarget(s.desreptg)
 	c:RegisterEffect(e3)
-  --Add continous spell
+  --Add spell
 	local e4=Effect.CreateEffect(c)
 	e4:SetDescription(aux.Stringid(id,0))
 	e4:SetCategory(CATEGORY_SEARCH+CATEGORY_TOHAND)
@@ -72,13 +72,13 @@ function s.desop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Destroy(g,REASON_EFFECT)
 	end
 end
---Add continous spell
+--Add spell
 function s.thcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,0x1ff,2,REASON_COST) end
 	Duel.RemoveCounter(tp,1,0,0x1ff,2,REASON_COST)
 end
 function s.thfilter(c)
-	return c:IsSetCard(0x1ff) and c:IsSpell() and c:IsType(TYPE_CONTINUOUS) and c:IsAbleToHand()
+	return c:IsSetCard(0x1ff) and c:IsSpell() and c:IsAbleToHand()
 end
 function s.thtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.thfilter,tp,LOCATION_DECK,0,1,nil) end
