@@ -1,7 +1,7 @@
 # Dead Space inspired Cards for Project Ignis EDO Pro
 This Repository contains custom Yu-Gi-Oh! Cards Based on the Dead Space games that are meant to run in [Project Ignis EDO Pro](https://github.com/ProjectIgnis). that you can download [Here](https://projectignis.github.io/download.html).
 ## Installation
-### Locate your 'ProjectIgnis' folder
+### Locate your `ProjectIgnis` folder
 ![Necromorph Slasher.](/tutorial/directory1.PNG)
 ### Go to your 'config' folder
 Then open the 'string.conf' file using any text editor.
